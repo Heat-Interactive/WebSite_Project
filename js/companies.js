@@ -57,19 +57,20 @@ async function loadCompanies() {
     // Create company elements
     companies.forEach(company => {
         const companyDiv = document.createElement('div');
-        companyDiv.className = 'flex items-center gap-4 text-2xl font-bold text-white';
+        companyDiv.className = 'flex flex-col items-center gap-4 text-center group'; // Vertical stack, centered
 
         if (company.Logo) {
             // If logo URL exists, use it
             const img = document.createElement('img');
             img.src = company.Logo;
             img.alt = company.Name;
-            img.className = 'w-12 h-12 object-contain';
+            img.className = 'w-32 h-32 object-contain transition-all duration-500'; // Increased size, no grayscale
             companyDiv.appendChild(img);
         }
 
         const nameSpan = document.createElement('span');
         nameSpan.textContent = company.Name;
+        nameSpan.className = 'text-2xl font-bold text-white'; // Larger text
         companyDiv.appendChild(nameSpan);
 
         container.appendChild(companyDiv);

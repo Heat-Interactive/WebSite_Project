@@ -53,13 +53,8 @@
 <body class="antialiased">
 
     <!-- Arkaplan -->
-    <div class="glow-bg">
-        <div class="glow-blob bg-indigo-600 w-96 h-96 top-0 -left-20"></div>
-        <div class="glow-blob bg-purple-600 w-96 h-96 bottom-0 -right-20 animation-delay-2000"></div>
-        <div
-            class="glow-blob bg-pink-600 w-80 h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20">
-        </div>
-    </div>
+    <!-- Dynamic Background -->
+    <script src="js/background.js"></script>
 
     <!-- Navbar -->
     <!-- Navbar -->
@@ -113,18 +108,7 @@
                         <img src="https://zbifnmzafevagllhzibk.supabase.co/storage/v1/object/public/TestBucket/HeroImage.png"
                             alt="VR Experience"
                             class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute bottom-6 left-6 right-6 z-20 flex gap-4">
-                            <div class="glass-card p-4 rounded-xl flex-1 text-center bg-black/40 backdrop-blur-xl">
-                                <div class="text-2xl font-bold text-white counter" data-target="50">0</div>
-                                <div class="text-xs text-gray-400 uppercase tracking-wider"
-                                    data-i18n="home.hero.stat.project">Proje</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl flex-1 text-center bg-black/40 backdrop-blur-xl">
-                                <div class="text-2xl font-bold text-white">4.9</div>
-                                <div class="text-xs text-gray-400 uppercase tracking-wider"
-                                    data-i18n="home.hero.stat.rating">Rating</div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -134,10 +118,10 @@
     <!-- Logo Cloud -->
     <section class="py-16 border-y border-white/5 bg-black/20">
         <div class="container mx-auto px-6">
-            <p class="text-center text-base text-gray-400 mb-12 font-semibold tracking-widest uppercase"
-                data-i18n="home.partners.title">Güvenilir İş Ortaklarımız</p>
+            <h2 class="text-center text-3xl md:text-4xl font-bold text-white mb-16" data-i18n="home.partners.title">
+                Güvenilir İş Ortaklarımız</h2>
             <div id="companies-container"
-                class="flex flex-wrap justify-center gap-16 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                class="flex flex-wrap justify-center gap-16 md:gap-24 transition-all duration-700">
                 <!-- Companies will be loaded here dynamically -->
             </div>
         </div>
@@ -259,29 +243,7 @@
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
 
-            const counters = document.querySelectorAll('.counter');
-            let hasAnimated = false;
-            const animateCounters = () => {
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const increment = target / 50;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(animateCounters, 30);
-                    } else {
-                        counter.innerText = target;
-                    }
-                });
-            };
-            const counterObserver = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && !hasAnimated) {
-                    animateCounters();
-                    hasAnimated = true;
-                }
-            }, { threshold: 0.5 });
-            const counterEl = document.querySelector('.counter');
-            if (counterEl) counterObserver.observe(counterEl);
+
         });
     </script>
 </body>

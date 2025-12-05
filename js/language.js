@@ -4,7 +4,7 @@
  */
 
 // Global state
-let currentLang = localStorage.getItem('heat_lang') || 'tr';
+let currentLang = localStorage.getItem('heat_lang') || 'en';
 
 function updateContent() {
     const elements = document.querySelectorAll('[data-i18n]');

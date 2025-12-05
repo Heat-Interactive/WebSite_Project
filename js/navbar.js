@@ -25,9 +25,9 @@ const navbarHTML = `
             <!-- Language Switcher & Mobile Menu -->
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex items-center gap-2 text-sm">
-                    <button onclick="changeLanguage('tr')" id="lang-tr" class="transition-colors hover:text-white">TR</button>
-                    <span class="text-gray-600">|</span>
                     <button onclick="changeLanguage('en')" id="lang-en" class="transition-colors hover:text-white">EN</button>
+                    <span class="text-gray-600">|</span>
+                    <button onclick="changeLanguage('tr')" id="lang-tr" class="transition-colors hover:text-white">TR</button>
                 </div>
 
                 <button
@@ -49,9 +49,9 @@ const navbarHTML = `
             <a href="contact.html" class="mobile-link text-gray-400 hover:text-white transition-colors" data-i18n="nav.contact">İletişim</a>
             
             <div class="flex justify-center gap-4 text-xl pt-8 border-t border-white/10">
-                <button onclick="changeLanguage('tr')" class="text-white">TR</button>
-                <span class="text-gray-600">|</span>
                 <button onclick="changeLanguage('en')" class="text-gray-500">EN</button>
+                <span class="text-gray-600">|</span>
+                <button onclick="changeLanguage('tr')" class="text-white">TR</button>
             </div>
 
             <button

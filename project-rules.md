@@ -4,7 +4,7 @@
 
 **Proje Adı:** Heat Interactive Website  
 **Proje Türü:** Kurumsal VR/AR Şirketi Web Sitesi  
-**Diller:** Türkçe (Varsayılan), İngilizce  
+**Diller:** İngilizce (Varsayılan), Türkçe  
 **Teknoloji Stack:** HTML, CSS, JavaScript, Tailwind CSS, Supabase  
 **Lokasyon:** `d:\Antigravity-Projects\HeatInteractive-Web`
 
