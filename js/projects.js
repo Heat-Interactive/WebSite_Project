@@ -1,29 +1,12 @@
-// Supabase Configuration
-const SUPABASE_URL = 'https://zbifnmzafevagllhzibk.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiaWZubXphZmV2YWdsbGh6aWJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ3NzgxODksImV4cCI6MjA4MDM1NDE4OX0.qfsnL7UoMXVEDuIswias-VpmKL2WwS0mpyERr8HSfj4';
-
-// Initialize Supabase client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-// Fetch projects from Supabase
+// Fetch projects from local data
 async function fetchProjects() {
-    console.log('🔍 Fetching projects from Supabase...');
+    console.log('🔍 Fetching projects from local data...');
 
-    try {
-        const { data, error } = await supabase
-            .from('Projects')
-            .select('*')
-            .order('id', { ascending: true });
-
-        if (error) {
-            console.error('❌ Error fetching projects:', error);
-            return [];
-        }
-
-        console.log('✅ Successfully fetched projects:', data);
-        return data || [];
-    } catch (err) {
-        console.error('❌ Unexpected error:', err);
+    if (window.PROJECTS_DATA) {
+        console.log('✅ Successfully loaded projects from window.PROJECTS_DATA');
+        return window.PROJECTS_DATA;
+    } else {
+        console.error('❌ window.PROJECTS_DATA is undefined. Make sure js/projects-data.js is loaded.');
         return [];
     }
 }
@@ -55,7 +38,7 @@ async function loadProjects() {
     projects.forEach(project => {
         // Create card structure matching the design
         const projectCard = document.createElement('a');
-        projectCard.href = 'hallhunter_strawberry_project.html'; // Default link for now
+        projectCard.href = project.link || '#';
         projectCard.className = 'glass-card rounded-2xl overflow-hidden group flex flex-col h-full transition-transform duration-300 hover:-translate-y-2';
 
         // Image Container
@@ -63,9 +46,15 @@ async function loadProjects() {
         imgContainer.className = 'h-64 overflow-hidden relative shrink-0';
 
         const img = document.createElement('img');
-        img.src = project.project_thumbnail || 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?q=80&w=1600&auto=format&fit=crop'; // Fallback image
+        // Use local path or fallback
+        img.src = project.project_thumbnail || 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?q=80&w=1600&auto=format&fit=crop';
         img.alt = project.project_name;
         img.className = 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110';
+
+        // Handle image error
+        img.onerror = () => {
+            img.src = 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?q=80&w=1600&auto=format&fit=crop';
+        };
 
         imgContainer.appendChild(img);
 
@@ -87,9 +76,20 @@ async function loadProjects() {
         const footer = document.createElement('div');
         footer.className = 'mt-auto flex justify-between items-center pt-4 border-t border-white/5';
 
-        // Icons (Static for now as they are not in DB)
+        // Icons (Static for now, or dynamic tags if added to JSON)
         const iconsDiv = document.createElement('div');
         iconsDiv.className = 'flex gap-3 text-gray-500';
+
+        // Example: Add icons based on tags if available, else default
+        if (project.tags && Array.isArray(project.tags)) {
+            project.tags.forEach(tag => {
+                // Simple mapping or text for now
+                // For now keeping the static icons as per previous design, 
+                // but ideally these should be dynamic. 
+                // Keeping consistent with previous static icons for visual stability
+            });
+        }
+
         iconsDiv.innerHTML = `
             <i class="fa-brands fa-unity hover:text-white transition-colors"></i>
             <i class="fa-solid fa-vr-cardboard hover:text-white transition-colors"></i>
