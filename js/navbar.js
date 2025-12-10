@@ -15,23 +15,17 @@ const navbarHTML = `
             </a>
             <div class="hidden md:flex items-center gap-10">
                 <div class="flex gap-8 text-base font-medium text-gray-300">
-                    <a href="index.html" class="nav-link transition-colors" data-i18n="nav.home">Ana Sayfa</a>
-                    <a href="projects.html" class="nav-link transition-colors" data-i18n="nav.projects">Projeler</a>
-                    <a href="aboutus.html" class="nav-link transition-colors" data-i18n="nav.about">Hakkımızda</a>
-                    <a href="contact.html" class="nav-link transition-colors" data-i18n="nav.contact">İletişim</a>
+                    <a href="index.html" class="nav-link transition-colors">Home</a>
+                    <a href="projects.html" class="nav-link transition-colors">Projects</a>
+                    <a href="aboutus.html" class="nav-link transition-colors">About Us</a>
+                    <a href="contact.html" class="nav-link transition-colors">Contact</a>
                 </div>
             </div>
 
-            <!-- Language Switcher & Mobile Menu -->
-            <div class="flex items-center gap-4">
-                <div class="hidden md:flex items-center gap-2 text-sm">
-                    <button onclick="changeLanguage('en')" id="lang-en" class="transition-colors hover:text-white">EN</button>
-                    <span class="text-gray-600">|</span>
-                    <button onclick="changeLanguage('tr')" id="lang-tr" class="transition-colors hover:text-white">TR</button>
-                </div>
-
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center gap-4 md:hidden">
                 <button
-                    class="md:hidden w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white text-xl hover:bg-white/10 transition-colors"
+                    class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white text-xl hover:bg-white/10 transition-colors"
                     id="mobile-menu-btn">
                     <i class="fa-solid fa-bars-staggered"></i>
                 </button>
@@ -43,17 +37,11 @@ const navbarHTML = `
     <div id="mobile-menu"
         class="hidden fixed inset-0 z-40 bg-[#020410]/95 backdrop-blur-2xl pt-32 px-6 md:hidden transition-all duration-300 text-center">
         <div class="flex flex-col space-y-8 text-2xl font-bold">
-            <a href="index.html" class="mobile-link text-gray-400 hover:text-white transition-colors" data-i18n="nav.home">Ana Sayfa</a>
-            <a href="projects.html" class="mobile-link text-gray-400 hover:text-white transition-colors" data-i18n="nav.projects">Projeler</a>
-            <a href="aboutus.html" class="mobile-link text-gray-400 hover:text-white transition-colors" data-i18n="nav.about">Hakkımızda</a>
-            <a href="contact.html" class="mobile-link text-gray-400 hover:text-white transition-colors" data-i18n="nav.contact">İletişim</a>
+            <a href="index.html" class="mobile-link text-gray-400 hover:text-white transition-colors">Home</a>
+            <a href="projects.html" class="mobile-link text-gray-400 hover:text-white transition-colors">Projects</a>
+            <a href="aboutus.html" class="mobile-link text-gray-400 hover:text-white transition-colors">About Us</a>
+            <a href="contact.html" class="mobile-link text-gray-400 hover:text-white transition-colors">Contact</a>
             
-            <div class="flex justify-center gap-4 text-xl pt-8 border-t border-white/10">
-                <button onclick="changeLanguage('en')" class="text-gray-500">EN</button>
-                <span class="text-gray-600">|</span>
-                <button onclick="changeLanguage('tr')" class="text-white">TR</button>
-            </div>
-
             <button
                 class="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl"
                 id="mobile-menu-close">

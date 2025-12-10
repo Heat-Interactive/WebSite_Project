@@ -21,7 +21,7 @@ async function loadProjects() {
     }
 
     // Show loading state
-    container.innerHTML = `<div class="text-gray-400 text-center w-full py-10" data-i18n="projects.loading">${getTranslation('projects.loading')}</div>`;
+    container.innerHTML = `<div class="text-gray-400 text-center w-full py-10">Loading projects...</div>`;
 
     // Fetch projects
     const projects = await fetchProjects();
@@ -30,7 +30,7 @@ async function loadProjects() {
     container.innerHTML = '';
 
     if (projects.length === 0) {
-        container.innerHTML = `<div class="text-gray-400 text-center w-full py-10" data-i18n="projects.empty">${getTranslation('projects.empty')}</div>`;
+        container.innerHTML = `<div class="text-gray-400 text-center w-full py-10">No projects found.</div>`;
         return;
     }
 
@@ -98,8 +98,7 @@ async function loadProjects() {
         // Link Text
         const linkText = document.createElement('span');
         linkText.className = 'text-xs text-indigo-400 font-semibold uppercase tracking-wider group-hover:text-white transition-colors';
-        linkText.setAttribute('data-i18n', 'projects.view');
-        linkText.textContent = getTranslation('projects.view');
+        linkText.textContent = 'VIEW PROJECT';
 
         footer.appendChild(iconsDiv);
         footer.appendChild(linkText);

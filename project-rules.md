@@ -192,3 +192,36 @@ Tüm inline stiller temizlendi. Tailwind CSS, CDN üzerinden geliştirme ortamı
 
 **Son Güncelleme:** 2025-12-05
 **Durum:** Kararlı / Çoklu Dil Aktif
+
+---
+
+## 📝 10 Aralık 2025 Oturumu Özeti
+
+Bu oturumda, "Agriculture Collecting Simulation" projesi üzerinde yoğunlaşıldı, site genelinde İngilizce'ye geçiş yapıldı ve teknik altyapı sadeleştirildi.
+
+### 1. English-Only Dönüşümü 🇬🇧
+*   Çoklu dil desteği (TR/EN) tamamen kaldırıldı. Site artık saece **İngilizce** hizmet veriyor.
+*   `data-i18n` öznitelikleri ve `translations.js`, `language.js` bağımlılıkları temizlendi.
+*   Tüm sayfalar (`index.html`, `aboutus.html`, `contact.html`, vb.) hardcoded İngilizce metinlerle güncellendi.
+*   Navbar'dan dil değiştirici kaldırıldı.
+
+### 2. Veri Migrasyonu (Supabase -> Local) 💾
+*   Supabase bağımlılığı **kaldırıldı**. Projeler ve partner verileri artık yerel JSON dosyalarından çekiliyor.
+*   YENİ: `js/projects-data.js` - Proje verilerini tutar.
+*   YENİ: `js/company-data.js` - Partner/Şirket verilerini tutar.
+*   `js/projects.js` ve `js/companies.js` bu yerel dosyaları okuyacak şekilde güncellendi.
+
+### 3. Agriculture Collecting Simulation Sayfası 🍓
+Eski adı `hallhunter_strawberry_project.html` olan dosya **`agriculture_collecting_simulation.html`** olarak yeniden adlandırıldı ve baştan tasarlandı:
+*   **İçerik:** Tamamen İngilizce ve proje detaylarına odaklı yeni metinler.
+*   **Yeni Bölümler:**
+    *   **"Unique Approach"**: Resimli (simulation-image-3.jpg) ve "frame" stilli.
+    *   **"Precision in Your Hands"**: Hand tracking önemini anlatan, Sol Resim/Sağ Metin düzeninde (simulation-image-2.jpg).
+    *   **"Detailed Reporting"**: Sağ Resim/Sol Metin düzeninde raporlama bölümü (simulation-image-4.jpg).
+    *   **"Video Showcase"**: Sayfanın en altına taşındı.
+*   **Tasarım Dili (Frame Style):** Sayfadaki tüm büyük görsellerden "glow" efekti kaldırıldı ve **`glass-card p-2 rounded-3xl`** stili ile bir çerçeve içine alınarak tutarlı bir görünüm sağlandı.
+
+### 4. Düzeltmeler 🛠️
+*   `js/projects.js` içindeki `getTranslation` hatası giderildi.
+*   Eksik proje thumbnail sorunu `hero-image.jpg` kullanılarak çözüldü.
+

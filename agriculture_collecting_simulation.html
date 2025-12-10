@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Collecting Simulation | Heat Interactive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#020410',
+                            card: 'rgba(255, 255, 255, 0.03)',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                            primary: '#6366f1',
+                            secondary: '#ec4899',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020410;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .glow-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: blob 10s infinite alternate;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-accent {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navbar visibility fix for video background */
+        #navbar-placeholder nav {
+            background: rgba(2, 4, 16, 0.85) !important;
+            backdrop-filter: blur(20px) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Background -->
+    <div class="glow-bg">
+        <div class="glow-blob bg-indigo-900 w-full h-96 top-0 left-0 opacity-20"></div>
+    </div>
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script src="js/navbar.js"></script>
+
+    <!-- Hero Section -->
+    <section class="relative h-[80vh] min-h-[600px] flex items-end pb-20 overflow-hidden">
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0 z-0">
+            <video class="w-full h-full object-cover" autoplay loop muted playsinline
+                poster="images/projects/agriculture_collecting_simulation/hero-image.jpg">
+            </video>
+            <!-- Overlay Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#020410] via-[#020410]/60 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <span
+                        class="px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-indigo-300 text-xs font-bold tracking-widest uppercase backdrop-blur-md">AgriTech</span>
+                    <span
+                        class="px-3 py-1 bg-white/10 border border-white/10 rounded-full text-white text-xs font-bold tracking-widest uppercase backdrop-blur-md">VR
+                        Simulation</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                    <span>Agriculture Collecting</span> <br>
+                    <span class="gradient-text-accent">Simulation</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl leading-relaxed">
+                    Revolutionizing agricultural workforce training by moving the field into the digital realm. A
+                    hyper-realistic VR system designed to master strawberry harvesting.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Summary (Info Bar) -->
+    <section class="py-12 border-b border-white/5 bg-white/0">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 reveal">
+                <div>
+                    <h4 class="text-gray-500 text-xs uppercase tracking-widest font-bold mb-2">Sector</h4>
+                    <p class="text-white text-lg font-medium">Agriculture (AgriTech)</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-500 text-xs uppercase tracking-widest font-bold mb-2">Platform</h4>
+                    <p class="text-white text-lg font-medium">VR Headsets (Unity)</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-500 text-xs uppercase tracking-widest font-bold mb-2">Focus</h4>
+                    <p class="text-white text-lg font-medium">Workforce Efficiency</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-500 text-xs uppercase tracking-widest font-bold mb-2">Tech</h4>
+                    <p class="text-white text-lg font-medium">Hand Tracking & Physics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Content -->
+    <section class="py-24 container mx-auto px-6">
+
+        <!-- Overview -->
+        <div class="grid lg:grid-cols-2 gap-16 items-start mb-32">
+            <div class="space-y-8 reveal">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Digitizing the <span class="gradient-text-accent">Field</span>
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        This project aims to develop a VR training system that transports agricultural workforce
+                        training into a digital environment. Specifically targeting the strawberry picking process, it
+                        enables workers to learn correct picking techniques and improve their application skills in a
+                        realistic virtual setting.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <i class="fa-solid fa-hand-holding-droplet text-pink-500 text-3xl mb-4"></i>
+                        <h4 class="text-white font-bold mb-2">Correct Technique</h4>
+                        <p class="text-gray-400 text-sm">Mastering fruit selection and handling without damaging the
+                            crop.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <i class="fa-solid fa-clock text-indigo-500 text-3xl mb-4"></i>
+                        <h4 class="text-white font-bold mb-2">Time Management</h4>
+                        <p class="text-gray-400 text-sm">Optimizing picking speed and efficiency in a timed environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-2 rounded-3xl border border-white/10 relative overflow-hidden group h-[400px]">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img src="images/projects/agriculture_collecting_simulation/simulation-image-1.jpg"
+                    class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
+                    alt="Strawberry Field VR">
+            </div>
+        </div>
+
+        <!-- How It Works / Interaction -->
+        <div class="mb-32 reveal">
+            <h2 class="text-3xl font-bold text-center text-white mb-16">Train Like You Work</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div
+                    class="glass-card p-8 rounded-3xl relative group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 font-black text-6xl text-white">01</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Realistic Environment</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Users experience 1:1 real-world field conditions. Every row, leaf, and strawberry is modeled to
+                        replicate the actual working environment.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="glass-card p-8 rounded-3xl relative group hover:-translate-y-2 transition-transform duration-300 border-indigo-500/30 border">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 font-black text-6xl text-white">02</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Interactive Feedback</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        The application provides instant feedback at every step. Picked a green strawberry? Applied too
+                        much pressure? The system alerts you immediately, allowing self-paced correction.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="glass-card p-8 rounded-3xl relative group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 font-black text-6xl text-white">03</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Risk-Free Learning</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Make mistakes here, not in the harvest. Workers can refine their skills without damaging actual
+                        crops or wasting valuable resources.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unique Selling Proposition & Scalability -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-32 reveal">
+            <div class="space-y-6">
+                <span class="text-indigo-400 font-bold tracking-widest uppercase text-sm mb-2 block">Unique
+                    Approach</span>
+                <h2 class="text-3xl font-bold text-white">
+                    Simulating <span class="gradient-text-accent">Precision</span>
+                </h2>
+                <p class="text-gray-400 leading-relaxed">
+                    What sets this project apart is its focus on agriculture-specific manual processes rather than
+                    generic skills. We simulate the exact picking motion using advanced hand tracking, allowing users to
+                    practice the precise harvesting maneuver repeatedly.
+                </p>
+                <div class="border-l-4 border-pink-500 pl-6 space-y-4">
+                    <p class="text-gray-300">
+                        <i class="fa-solid fa-maximize text-pink-500 mr-2"></i>
+                        <strong>Scalable Architecture:</strong> This system isn't limited to strawberries. Its flexible
+                        structure can be adapted for any crop or agricultural scenario.
+                    </p>
+                    <p class="text-gray-300">
+                        <i class="fa-solid fa-leaf text-pink-500 mr-2"></i>
+                        <strong>Waste Reduction:</strong> By training virtually, product waste during the learning phase
+                        is eliminated.
+                    </p>
+                </div>
+            </div>
+            <div class="glass-card p-2 rounded-3xl border border-white/10 relative overflow-hidden group h-96">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img src="images/projects/agriculture_collecting_simulation/simulation-image-3.jpg"
+                    class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
+                    alt="Unique Approach Visual">
+            </div>
+        </div>
+
+
+
+        <!-- Hand Tracking Highlight -->
+        <div class="grid lg:grid-cols-2 gap-16 items-center mb-32 reveal">
+            <div class="glass-card p-2 rounded-3xl border border-white/10 relative overflow-hidden group h-96">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img src="images/projects/agriculture_collecting_simulation/simulation-image-2.jpg"
+                    class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
+                    alt="Hand Tracking Demonstration">
+            </div>
+            <div class="space-y-6">
+                <span class="text-indigo-400 font-bold tracking-widest uppercase text-sm mb-2 block">Immersive
+                    Control</span>
+                <h2 class="text-3xl font-bold text-white">
+                    Precision in <span class="gradient-text-accent">Your Hands</span>
+                </h2>
+                <p class="text-gray-400 leading-relaxed">
+                    Picking a strawberry requires more than just a button press. It demands delicacy, the right angle,
+                    and precise pressure. Our advanced Hand Tracking system eliminates the need for controllers,
+                    allowing users to use their natural hand movements. This 1:1 fidelity ensures that the muscle memory
+                    developed in VR translates perfectly to the real field, preventing fruit damage and ensuring the
+                    highest quality harvest.
+                </p>
+                <div class="flex gap-4">
+                    <div class="glass-card px-6 py-3 rounded-xl border border-white/5 flex items-center gap-3">
+                        <i class="fa-solid fa-hand-pointer text-pink-500"></i>
+                        <span class="text-sm font-bold text-white">Controller-Free</span>
+                    </div>
+                    <div class="glass-card px-6 py-3 rounded-xl border border-white/5 flex items-center gap-3">
+                        <i class="fa-solid fa-bullseye text-indigo-500"></i>
+                        <span class="text-sm font-bold text-white">Millimeter Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Simulation Reporting -->
+        <div class="grid lg:grid-cols-2 gap-16 items-center mb-32 reveal">
+            <div class="space-y-6">
+                <span class="text-indigo-400 font-bold tracking-widest uppercase text-sm mb-2 block">Performance
+                    Tracking</span>
+                <h2 class="text-3xl font-bold text-white">
+                    Detailed <span class="gradient-text-accent">Reporting</span>
+                </h2>
+                <p class="text-gray-400 leading-relaxed">
+                    Improvement requires measurement. Our simulation tracks every movement, decision, and timing.
+                    Detailed post-training reports analyze worker efficiency, error rates, and technique precision,
+                    providing actionable insights for managers and personalized feedback for trainees.
+                </p>
+                <div class="flex gap-4">
+                    <div class="glass-card px-6 py-3 rounded-xl border border-white/5 flex items-center gap-3">
+                        <i class="fa-solid fa-chart-pie text-pink-500"></i>
+                        <span class="text-sm font-bold text-white">Efficiency Analysis</span>
+                    </div>
+                    <div class="glass-card px-6 py-3 rounded-xl border border-white/5 flex items-center gap-3">
+                        <i class="fa-solid fa-file-export text-indigo-500"></i>
+                        <span class="text-sm font-bold text-white">Exportable Data</span>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card p-2 rounded-3xl border border-white/10 relative overflow-hidden group h-96">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img src="images/projects/agriculture_collecting_simulation/simulation-image-4.jpg"
+                    class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
+                    alt="Simulation Reporting Dashboard">
+            </div>
+        </div>
+
+        <!-- Innovation & Tech -->
+        <div class="grid lg:grid-cols-2 gap-16 items-center reveal">
+            <div class="glass-card p-2 rounded-3xl border border-white/10 relative overflow-hidden group h-96">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1622979135228-2d219760773d?q=80&w=800&auto=format&fit=crop"
+                    class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
+                    alt="VR Hand Tracking">
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <span class="text-pink-400 font-bold tracking-widest uppercase text-sm mb-2 block">Technical
+                        Power</span>
+                    <h2 class="text-3xl font-bold text-white mb-4">Powered by Unity</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0 mt-1">
+                                <i class="fa-solid fa-hand-sparkles"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Hand Movement Tracking</h4>
+                                <p class="text-gray-400 text-sm">Fine motor skill tracking for precise picking gestures.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 shrink-0 mt-1">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Physics-Based Interaction</h4>
+                                <p class="text-gray-400 text-sm">Advanced plant physics for realistic harvesting
+                                    feedback.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 mt-1">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">3D Modeling & Graphics</h4>
+                                <p class="text-gray-400 text-sm">High-fidelity assets compatible with current VR
+                                    hardware.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Video Showcase -->
+    <div class="container mx-auto px-6 mb-32 reveal">
+        <h2 class="text-3xl font-bold text-center text-white mb-8">See It in Action</h2>
+        <div
+            class="glass-card p-2 rounded-3xl border border-white/10 max-w-5xl mx-auto shadow-2xl shadow-indigo-500/10">
+            <div class="relative rounded-2xl overflow-hidden aspect-video bg-black/50 group">
+                <!-- Placeholder video path - replace with actual gameplay footage -->
+                <video class="w-full h-full object-cover" controls
+                    poster="images/projects/agriculture_collecting_simulation/hero-image.jpg">
+                    <source src="https://videos.pexels.com/video-files/3844961/3844961-hd_1920_1080_30fps.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/40 backdrop-blur-md pt-16 pb-8">
+        <div
+            class="container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col gap-2">
+                <a href="index.html" class="text-2xl font-bold text-white tracking-tight">Heat Interactive</a>
+                <p class="text-sm text-gray-500">Designing the future today.</p>
+            </div>
+            <div class="flex gap-6 mt-4 md:mt-0 text-gray-400">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-8 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
+            © 2023 Heat Interactive. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealOnScroll = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                const windowHeight = window.innerHeight;
+                reveals.forEach((reveal) => {
+                    if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</body>
+
+</html>
