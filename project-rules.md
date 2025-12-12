@@ -25,7 +25,7 @@ WebSite_Project/
 ├── contact.html        # İletişim sayfası (English only)
 ├── style.css           # Birleştirilmiş CSS dosyası ve özel efektler
 └── js/
-    ├── background.js   # Dinamik animasyonlu arkaplan efektleri
+
     ├── companies.js    # Yerel company-data.js entegrasyonu
     ├── company-data.js # Partner şirket verileri (Local JSON)
     ├── projects.js     # Yerel projects-data.js entegrasyonu
