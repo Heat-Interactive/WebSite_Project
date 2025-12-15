@@ -42,7 +42,7 @@ async function loadProjects() {
         projectCard.className = 'bg-[#EBEBEB] border-2 border-gray-300 rounded-3xl overflow-hidden group flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300';
         // Image Container
         const imgContainer = document.createElement('div');
-        imgContainer.className = 'h-64 overflow-hidden relative shrink-0 bg-gray-300';
+        imgContainer.className = 'h-64 overflow-hidden relative shrink-0 bg-gray-300 border-2 border-gray-300 shadow-md';
 
         const img = document.createElement('img');
         // Use local path or fallback

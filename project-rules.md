@@ -285,13 +285,17 @@ Bu oturumda, tüm site genelinde kapsamlı bir tasarım yenilemesi yapıldı. Ka
 
 #### agriculture_collecting_simulation.html
 *   **Hero:** Tam ekran video arka planı korundu (karanlık overlay ile)
-*   **İçerik Bölümleri:** Beyaz ve açık gri arka planlar arası geçiş
-*   **"Digitizing the Field":** Beyaz zemin, sol metin/sağ görsel
-*   **"Train Like You Work":** Açık gri zemin, 3 beyaz kart (01/02/03 numaralı)
-*   **"Simulating Precision":** Beyaz zemin, sağ metin/sol görsel
-*   **"Precision in Your Hands":** Açık gri zemin, sol metin/sağ görsel
-*   **"Detailed Reporting":** Beyaz zemin, sol görsel/sağ metin
-*   **"Powered by Unity":** Açık gri zemin, sol metin/sağ görsel, beyaz ikon kutuları
+*   **Bölüm Ayrımı:** Sayfa boyunca uzanan belirgin çizgiler (`w-full h-0.5 bg-gray-300`)
+*   **Bölüm Stilleri:**
+    *   "Digitizing the Field": Beyaz zemin (`bg-white`), sol metin/sağ görsel
+    *   "Train Like You Work": Gri zemin (`bg-gray-100`), 3 bağımsız beyaz kart (`bg-white`, `border-gray-200`, `shadow-lg`)
+    *   "Simulating Precision" (Unique Approach): Beyaz zemin, sağ metin/sol görsel
+    *   "Precision in Your Hands": Gradient kırmızı/beyaz zemin, sol metin/sağ görsel
+    *   "Detailed Reporting": Gri gradient (`from-gray-50 to-gray-100`), sol görsel/sağ metin
+    *   "Powered by Unity": Kırmızı/turuncu gradient zemin, sol metin/sağ görsel
+*   **Kart Stilleri:**
+    *   Feature Kartları: `bg-gray-50`, `border-2 border-gray-200`, `shadow-md`
+    *   Image Kartları: Belirgin outline (`outline-4 outline-offset-2 outline-gray-400`), `shadow-xl`, `rounded-[3rem]`
 *   **Footer:** Beyaz/açık gri, modern sosyal medya ikonları
 
 ### 3. Kaldırılan Öğeler

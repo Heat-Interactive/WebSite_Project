@@ -79,26 +79,6 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -120,14 +100,6 @@
             background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        /* Navbar visibility fix for video background */
-        #navbar-placeholder nav {
-            background: rgba(2, 4, 16, 0.85) !important;
-            backdrop-filter: blur(20px) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
         }
     </style>
 </head>
@@ -172,22 +144,23 @@
     </section>
 
     <!-- Project Details Bar -->
-    <section class="py-12 border-y border-gray-200 bg-[#FAFAFA]">
+    <section
+        class="py-8 border-t-4 border-b-4 border-gray-300 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 shadow-inner">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Sector</h4>
                     <p class="text-[#111] text-lg font-bold">AgriTech</p>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Platform</h4>
                     <p class="text-[#111] text-lg font-bold">VR Headsets (Unity)</p>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Focus</h4>
                     <p class="text-[#111] text-lg font-bold">Workforce Efficiency</p>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Tech</h4>
                     <p class="text-[#111] text-lg font-bold">Hand Tracking</p>
                 </div>
@@ -195,12 +168,20 @@
         </div>
     </section>
 
+    <!-- Separator Line -->
+    <div class="w-full h-0.5 bg-gray-300"></div>
+
     <!-- Content: Digitizing the Field -->
-    <section class="py-24 bg-white">
+    <section class="py-32 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8 reveal">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#111]">Digitizing the Field</h2>
+                    <div>
+                        <span
+                            class="text-[#FA3624] font-bold tracking-widest uppercase text-xs mb-3 block">Challenge</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-[#111] leading-tight">Digitizing the Field
+                        </h2>
+                    </div>
                     <p class="text-gray-600 leading-relaxed text-lg font-medium">
                         This project aims to develop a VR training system that transports agricultural workforce
                         training into a digital environment. Specifically targeting the strawberry picking process, it
@@ -208,12 +189,12 @@
                         realistic virtual setting.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-[#EBEBEB] p-6 rounded-2xl border border-gray-200">
+                        <div class="bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 shadow-md">
                             <i class="fa-solid fa-hand-holding-droplet text-[#FA3624] text-2xl mb-4"></i>
                             <h4 class="text-[#111] font-bold mb-2">Correct Technique</h4>
                             <p class="text-gray-600 text-sm font-medium">Mastering fruit selection and handling.</p>
                         </div>
-                        <div class="bg-[#EBEBEB] p-6 rounded-2xl border border-gray-200">
+                        <div class="bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 shadow-md">
                             <i class="fa-solid fa-clock text-[#FA3624] text-2xl mb-4"></i>
                             <h4 class="text-[#111] font-bold mb-2">Time Management</h4>
                             <p class="text-gray-600 text-sm font-medium">Optimizing picking speed and efficiency.</p>
@@ -221,7 +202,8 @@
                     </div>
                 </div>
                 <div class="reveal delay-100">
-                    <div class="rounded-[3rem] overflow-hidden h-[500px] shadow-lg">
+                    <div
+                        class="rounded-[3rem] overflow-hidden h-[500px] outline outline-4 outline-offset-2 outline-gray-400 shadow-xl">
                         <img src="images/projects/agriculture_collecting_simulation/simulation-image-1.jpg"
                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                             alt="Strawberry Field VR">
@@ -231,13 +213,28 @@
         </div>
     </section>
 
+    <!-- Separator Line -->
+    <div class="w-full h-0.5 bg-gray-300"></div>
+
     <!-- Content: Train Like You Work -->
-    <section class="py-24 bg-[#EBEBEB]">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#111] mb-16">Train Like You Work</h2>
+    <section class="py-28 bg-gray-100 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-[#FA3624] rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FA3624] rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-4">
+                <span class="text-[#FA3624] font-bold tracking-widest uppercase text-xs mb-3 inline-block">Training
+                    Approach</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center text-[#111] mb-16 leading-tight">Train Like You
+                Work</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Step 1 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all">
+                <div
+                    class="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1">
                     <div class="text-[#FA3624] font-black text-5xl mb-6 opacity-20">01</div>
                     <h3 class="text-xl font-bold text-[#111] mb-4">Realistic Environment</h3>
                     <p class="text-gray-600 font-medium leading-relaxed">
@@ -247,16 +244,18 @@
                 </div>
                 <!-- Step 2 -->
                 <div
-                    class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all border-2 border-[#FA3624]/10">
-                    <div class="text-[#FA3624] font-black text-5xl mb-6 opacity-20">02</div>
-                    <h3 class="text-xl font-bold text-[#111] mb-4">Interactive Feedback</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">
+                    class="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-[#FA3624] opacity-5 rounded-bl-[4rem]"></div>
+                    <div class="text-[#FA3624] font-black text-5xl mb-6 opacity-20 relative z-10">02</div>
+                    <h3 class="text-xl font-bold text-[#111] mb-4 relative z-10">Interactive Feedback</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed relative z-10">
                         The application provides instant feedback. Picked a green strawberry? Applied too much pressure?
                         The system alerts you immediately.
                     </p>
                 </div>
                 <!-- Step 3 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all">
+                <div
+                    class="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1">
                     <div class="text-[#FA3624] font-black text-5xl mb-6 opacity-20">03</div>
                     <h3 class="text-xl font-bold text-[#111] mb-4">Risk-Free Learning</h3>
                     <p class="text-gray-600 font-medium leading-relaxed">
@@ -268,21 +267,25 @@
         </div>
     </section>
 
+    <!-- Separator Line -->
+    <div class="w-full h-0.5 bg-gray-300"></div>
+
     <!-- Content: Unique Approach -->
-    <section class="py-24 bg-white">
+    <section class="py-32 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="order-2 lg:order-1 reveal">
-                    <div class="rounded-[3rem] overflow-hidden h-[400px] shadow-lg">
+                    <div
+                        class="rounded-[3rem] overflow-hidden h-[400px] outline outline-4 outline-offset-2 outline-gray-400 shadow-xl">
                         <img src="images/projects/agriculture_collecting_simulation/simulation-image-3.jpg"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                             alt="Unique Approach Visual">
                     </div>
                 </div>
                 <div class="space-y-6 order-1 lg:order-2 reveal">
-                    <span class="text-[#FA3624] font-bold tracking-widest uppercase text-sm mb-2 block">Unique
+                    <span class="text-[#FA3624] font-bold tracking-widest uppercase text-xs mb-3 block">Unique
                         Approach</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#111]">Simulating Precision</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-[#111] leading-tight">Simulating Precision</h2>
                     <p class="text-gray-600 leading-relaxed font-medium">
                         What sets this project apart is its focus on agriculture-specific manual processes rather than
                         generic skills. We simulate the exact picking motion using advanced hand technology.
@@ -302,14 +305,18 @@
         </div>
     </section>
 
+    <!-- Separator Line -->
+    <div class="w-full h-0.5 bg-gray-300"></div>
+
     <!-- Content: Hand Tracking -->
-    <section class="py-24 bg-[#EBEBEB]">
+    <section class="py-28 bg-gradient-to-br from-red-50/20 via-white to-gray-50">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-6 reveal">
-                    <span class="text-[#FA3624] font-bold tracking-widest uppercase text-sm mb-2 block">Immersive
+                    <span class="text-[#FA3624] font-bold tracking-widest uppercase text-xs mb-3 block">Immersive
                         Control</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#111]">Precision in Your Hands</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-[#111] leading-tight">Precision in Your Hands
+                    </h2>
                     <p class="text-gray-600 leading-relaxed font-medium">
                         Picking a strawberry requires more than just a button press. It demands delicacy, the right
                         angle, and precise pressure. Our advanced Hand Tracking system eliminates the need for
@@ -327,7 +334,8 @@
                     </div>
                 </div>
                 <div class="reveal delay-100">
-                    <div class="rounded-[3rem] overflow-hidden h-[400px] shadow-lg">
+                    <div
+                        class="rounded-[3rem] overflow-hidden h-[400px] outline outline-4 outline-offset-2 outline-gray-400 shadow-xl">
                         <img src="images/projects/agriculture_collecting_simulation/simulation-image-2.jpg"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                             alt="Hand Tracking">
@@ -337,31 +345,40 @@
         </div>
     </section>
 
+    <!-- Separator Line -->
+    <div class="w-full h-0.5 bg-gray-300"></div>
+
     <!-- Content: Reporting -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6">
+    <section class="py-28 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-1/2 left-0 w-96 h-96 bg-[#FA3624] rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal">
-                    <div class="rounded-[3rem] overflow-hidden h-[400px] shadow-lg">
+                    <div
+                        class="rounded-[3rem] overflow-hidden h-[400px] outline outline-4 outline-offset-2 outline-gray-400 shadow-xl">
                         <img src="images/projects/agriculture_collecting_simulation/simulation-image-4.jpg"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                             alt="Reporting Dashboard">
                     </div>
                 </div>
                 <div class="space-y-6 reveal">
-                    <span class="text-[#FA3624] font-bold tracking-widest uppercase text-sm mb-2 block">Performance
+                    <span class="text-[#FA3624] font-bold tracking-widest uppercase text-xs mb-3 block">Performance
                         Tracking</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#111]">Detailed Reporting</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-[#111] leading-tight">Detailed Reporting</h2>
                     <p class="text-gray-600 leading-relaxed font-medium">
                         Improvement requires measurement. Our simulation tracks every movement, decision, and timing.
                         Detailed post-training reports analyze worker efficiency, error rates, and technique precision.
                     </p>
                     <div class="flex gap-4">
-                        <div class="bg-[#EBEBEB] px-6 py-3 rounded-xl flex items-center gap-3">
+                        <div class="bg-gray-50 px-6 py-3 rounded-xl flex items-center gap-3">
                             <i class="fa-solid fa-chart-pie text-[#FA3624]"></i>
                             <span class="text-sm font-bold text-gray-900">Efficiency Analysis</span>
                         </div>
-                        <div class="bg-[#EBEBEB] px-6 py-3 rounded-xl flex items-center gap-3">
+                        <div class="bg-gray-50 px-6 py-3 rounded-xl flex items-center gap-3">
                             <i class="fa-solid fa-file-export text-[#FA3624]"></i>
                             <span class="text-sm font-bold text-gray-900">Exportable Data</span>
                         </div>
@@ -371,55 +388,60 @@
         </div>
     </section>
 
+    <!-- Separator Line -->
+    <div class="w-full h-0.5 bg-gray-300"></div>
+
     <!-- Powered By Unity -->
-    <section class="py-24 bg-[#EBEBEB]">
+    <section class="py-32 bg-gradient-to-br from-red-50/10 via-white to-orange-50/10">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-8 reveal">
+                <div class="space-y-8 reveal order-2 lg:order-1">
                     <div>
-                        <span class="text-[#FA3624] font-bold tracking-widest uppercase text-sm mb-2 block">Technical
+                        <span class="text-[#FA3624] font-bold tracking-widest uppercase text-xs mb-3 block">Technical
                             Power</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-[#111] mb-6">Powered by Unity</h2>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-[#111] mb-6 leading-tight">Powered by Unity
+                        </h2>
+                    </div>
 
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#FA3624] shrink-0 border border-gray-200">
-                                    <i class="fa-solid fa-hand-sparkles"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-[#111] font-bold">Hand Movement Tracking</h4>
-                                    <p class="text-gray-600 text-sm">Fine motor skill tracking for precise picking
-                                        gestures.</p>
-                                </div>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#FA3624] shrink-0 border border-gray-200">
+                                <i class="fa-solid fa-hand-sparkles"></i>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#FA3624] shrink-0 border border-gray-200">
-                                    <i class="fa-solid fa-leaf"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-[#111] font-bold">Physics-Based Interaction</h4>
-                                    <p class="text-gray-600 text-sm">Advanced plant physics for realistic harvesting
-                                        feedback.</p>
-                                </div>
+                            <div>
+                                <h4 class="text-[#111] font-bold">Hand Movement Tracking</h4>
+                                <p class="text-gray-600 text-sm">Fine motor skill tracking for precise picking
+                                    gestures.</p>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#FA3624] shrink-0 border border-gray-200">
-                                    <i class="fa-solid fa-cube"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-[#111] font-bold">3D Modeling & Graphics</h4>
-                                    <p class="text-gray-600 text-sm">High-fidelity assets compatible with current VR
-                                        hardware.</p>
-                                </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#FA3624] shrink-0 border border-gray-200">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[#111] font-bold">Physics-Based Interaction</h4>
+                                <p class="text-gray-600 text-sm">Advanced plant physics for realistic harvesting
+                                    feedback.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#FA3624] shrink-0 border border-gray-200">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[#111] font-bold">3D Modeling & Graphics</h4>
+                                <p class="text-gray-600 text-sm">High-fidelity assets compatible with current VR
+                                    hardware.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="reveal delay-100">
-                    <div class="rounded-[3rem] overflow-hidden h-[400px] shadow-lg">
+                <div class="reveal delay-100 order-1 lg:order-2">
+                    <div
+                        class="rounded-[3rem] overflow-hidden h-[400px] outline outline-4 outline-offset-2 outline-gray-400 shadow-xl">
                         <img src="images/projects/agriculture_collecting_simulation/simulation-image-5.jpg"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                             alt="Unity Engine Visual">

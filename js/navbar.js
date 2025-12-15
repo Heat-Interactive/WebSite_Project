@@ -128,6 +128,15 @@ const navbarHTML = `
 function setActiveLink() {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
+    // Define project detail pages
+    const projectDetailPages = [
+        'agriculture_collecting_simulation.html'
+        // Add other project detail pages here as needed
+    ];
+
+    // Check if current page is a project detail page
+    const isProjectPage = projectDetailPages.includes(currentPath);
+
     // Desktop links
     const links = document.querySelectorAll('.nav-link');
     links.forEach(link => {
@@ -143,7 +152,10 @@ function setActiveLink() {
             textSpan.classList.add('border-transparent');
         }
 
-        if (linkPath === currentPath) {
+        // Check for exact match OR if this is projects.html and we're on a project detail page
+        const isActive = linkPath === currentPath || (linkPath === 'projects.html' && isProjectPage);
+
+        if (isActive) {
             // Active state: Red text
             link.classList.remove('text-black');
             link.classList.add('text-[#FA3624]');
@@ -160,7 +172,9 @@ function setActiveLink() {
     const mobileLinks = document.querySelectorAll('.mobile-link');
     mobileLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
-        if (linkPath === currentPath) {
+        const isActive = linkPath === currentPath || (linkPath === 'projects.html' && isProjectPage);
+
+        if (isActive) {
             link.classList.add('text-[#FA3624]');
             link.classList.remove('text-gray-800');
         } else {
