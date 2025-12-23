@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agriculture Collecting Simulation | Heat Interactive</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -93,12 +94,14 @@
         .gradient-text {
             background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .gradient-text-accent {
             background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
@@ -114,11 +117,13 @@
     <section class="relative h-[80vh] min-h-[600px] flex items-end pb-20 overflow-hidden">
         <!-- Background Video/Image -->
         <div class="absolute inset-0 z-0">
-            <video class="w-full h-full object-cover" autoplay loop muted playsinline
-                poster="images/projects/agriculture_collecting_simulation/hero-image.jpg">
-                <source src="https://videos.pexels.com/video-files/3844961/3844961-hd_1920_1080_30fps.mp4"
-                    type="video/mp4">
-            </video>
+            <!-- YouTube Background Embed -->
+            <div class="absolute inset-0 z-0">
+                <iframe class="w-full h-full object-cover pointer-events-none scale-150"
+                    src="https://www.youtube.com/embed/4nYTxQx7yd8?autoplay=1&mute=1&loop=1&playlist=4nYTxQx7yd8&controls=0&showinfo=0&rel=0&iv_load_policy=3"
+                    title="Agriculture Background" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+            </div>
             <!-- Overlay Gradient -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
         </div>
@@ -468,30 +473,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-300 bg-white/40 backdrop-blur-md pt-16 pb-8 mt-auto">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-center md:text-left">
-                    <a href="index.html"
-                        class="text-2xl font-bold text-gray-900 flex items-center justify-center md:justify-start gap-2 tracking-tight">Heat
-                        Interactive</a>
-                    <p class="text-sm text-gray-500 mt-2">© 2025 Heat Interactive.</p>
-                </div>
-                <div class="flex gap-6">
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all"><i
-                            class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all"><i
-                            class="fa-brands fa-instagram"></i></a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all"><i
-                            class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="js/footer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

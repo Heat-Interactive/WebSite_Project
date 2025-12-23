@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archaeology Gamification | Heat Interactive</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            dark: '#1A1A1A',
+                            accent: '#FA3624',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Removed fixed footer styles */
+
+        .parallax-hero {
+            height: 90vh;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-v2 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transform: scale(1.1);
+            transition: transform 10s linear;
+        }
+
+        .parallax-hero:hover .hero-image-v2 {
+            transform: scale(1);
+        }
+
+        .vertical-card-wrapper {
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            padding: 10px;
+            /* Added padding so image corners don't touch the very edge */
+        }
+
+        .vertical-card-wrapper img {
+            border-radius: 0.5rem;
+            /* Inner image rounding */
+        }
+
+        /* Cinematic splitting typography */
+        .split-text {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script src="js/navbar.js"></script>
+
+    <!-- Cinematic Landscape Hero -->
+    <section class="parallax-hero flex items-center justify-center text-center px-6">
+        <div class="absolute inset-0 z-0">
+            <img class="hero-image-v2" src="images/projects/archaeology_gamification_project/hero-image.jpg"
+                alt="Archaeology Cinematic">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-white"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl reveal">
+            <span class="text-brand-gold font-black uppercase tracking-[0.4em] text-sm mb-6 block">Immersing Users in
+                History</span>
+            <h1 class="text-6xl md:text-9xl font-black text-white leading-tight mb-8 tracking-tighter uppercase">
+                ANCIENT <br> <span class="text-brand-gold italic">ROUTES</span>
+            </h1>
+            <div class="h-1 w-24 bg-brand-accent mx-auto mb-8"></div>
+            <p class="text-xl text-gray-200 max-w-2xl mx-auto font-medium leading-relaxed">
+                Revolutionizing the exploration of ancient sites by moving history into the digital realm. A
+                hyper-realistic AR experience designed to master historical discovery.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 border-y border-gray-100 py-12">
+                <div class="text-center">
+                    <span class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Sector</span>
+                    <span class="text-3xl font-bold font-serif italic text-brand-dark">EdTech / Tourism</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Platform</span>
+                    <span class="text-3xl font-bold font-serif italic text-brand-dark">iOS / Android</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Focus</span>
+                    <span class="text-3xl font-bold font-serif italic text-brand-dark">Gamification</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Tech</span>
+                    <span class="text-3xl font-bold font-serif italic text-brand-dark">AR & GPS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Narrative -->
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <div class="vertical-card-wrapper">
+                        <img src="images/projects/archaeology_gamification_project/image=1.jpg"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            alt="Dig Site">
+                    </div>
+                </div>
+                <div class="lg:col-span-1"></div>
+                <div class="lg:col-span-6 space-y-8 reveal delay-200">
+                    <h2 class="text-5xl font-black text-brand-dark italic leading-none">DIGITIZING <br> THE PAST</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed font-medium">
+                        This project transports historical exploration into a digital environment. Specifically
+                        targeting ancient cities and museums, it enables users to visualize architectural
+                        reconstructions and unlock hidden stories in a realistic, immersive setting.
+                    </p>
+                    <div class="pt-8">
+                        <a href="#video-section" class="inline-flex items-center group">
+                            <span
+                                class="w-16 h-16 rounded-full border-2 border-brand-accent flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all">
+                                <i class="fa-solid fa-play"></i>
+                            </span>
+                            <span class="ml-6 text-sm font-black uppercase tracking-widest text-brand-dark">Experimental
+                                Footage</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase (Cinematic Borderless) -->
+    <section id="video-section" class="py-32 bg-brand-dark text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto reveal">
+                <div class="video-container group relative aspect-video rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(197,160,89,0.2)] bg-black cursor-pointer"
+                    onclick="this.innerHTML = '<iframe class=\'w-full h-full\' src=\'https://www.youtube.com/embed/WhqYhVLo2lo?autoplay=1&rel=0\' title=\'Ancient Routes Video\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\' allowfullscreen></iframe>'">
+                    <!-- Custom Poster / Overlay -->
+                    <img src="images/projects/archaeology_gamification_project/hero-image.jpg"
+                        class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                        alt="Video Poster">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div
+                            class="w-24 h-24 rounded-full bg-brand-accent/90 flex items-center justify-center text-white text-3xl shadow-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 flex justify-between items-end">
+                    <div class="max-w-xl">
+                        <h3 class="text-3xl font-bold text-brand-gold mb-4 uppercase">Technical Power</h3>
+                        <p class="text-gray-400 font-medium">Real-time motion tracking and high-fidelity 3D assets
+                            designed for optimum mobile performance. Experience 360-degree past views with
+                            high-precision orientation sensors.</p>
+                    </div>
+                    <span class="text-brand-accent font-black italic text-6xl opacity-20">2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Precision Archetype (Image Left) -->
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Image Column (Left) -->
+                <div class="lg:col-span-5 reveal">
+                    <div class="vertical-card-wrapper">
+                        <img src="images/projects/archaeology_gamification_project/image-2.jpg"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            alt="Precision Tools">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1"></div>
+
+                <!-- Info Column (Right) -->
+                <div class="lg:col-span-6 space-y-10 reveal delay-200">
+                    <div class="space-y-4">
+                        <span class="text-xs font-black uppercase tracking-[0.4em] text-brand-gold">Exploration
+                            Approach</span>
+                        <h2 class="text-5xl font-black text-brand-dark leading-tight uppercase">TRAVEL LIKE <br> YOU
+                            WERE THERE
+                        </h2>
+                        <div class="w-16 h-1 bg-brand-accent"></div>
+                    </div>
+                    <p class="text-lg text-gray-600 leading-relaxed font-medium">
+                        Experience 1:1 digital overlays of ancient structures. Every column and street is modeled to
+                        replicate the original architectural glory, providing instant context as you walk.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 pt-4">
+                        <div>
+                            <h4 class="font-black uppercase text-brand-dark text-sm mb-2 tracking-widest">Interactive
+                            </h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Tapping 3D models or scanning QR codes
+                                reveals secret narratives.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-black uppercase text-brand-dark text-sm mb-2 tracking-widest">Autonomy</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Explore at your own pace without the need
+                                for physical guides.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Digital Archiving (Image Right) -->
+    <section class="py-32 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Info Column (Left) -->
+                <div class="lg:col-span-6 space-y-10 reveal">
+                    <div class="space-y-4">
+                        <span class="text-xs font-black uppercase tracking-[0.4em] text-brand-gold">Unique
+                            Approach</span>
+                        <h2 class="text-5xl font-black text-brand-dark leading-tight uppercase">SIMULATING <br> THE PAST
+                        </h2>
+                        <div class="w-16 h-1 bg-brand-accent"></div>
+                    </div>
+                    <p class="text-lg text-gray-600 leading-relaxed font-medium">
+                        What sets this project apart is its focus on site-specific immersion. We simulate the exact
+                        "Past View" using advanced AR, making history accessible and entertaining for a global audience.
+                    </p>
+                    <div class="flex gap-12 pt-4">
+                        <div class="text-center">
+                            <span class="block text-2xl font-black text-brand-dark">Global</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Scalable
+                                Framework</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-2xl font-black text-brand-dark">AR</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Past View
+                                Simulation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1"></div>
+
+                <!-- Image Column (Right) -->
+                <div class="lg:col-span-5 reveal delay-200">
+                    <div class="vertical-card-wrapper">
+                        <img src="images/projects/archaeology_gamification_project/image-3.jpg"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            alt="Museum Display">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Performance Tracking (Personal Museum Hub) -->
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
+                <span class="text-xs font-black uppercase tracking-[0.4em] text-brand-gold">Progress Mapping</span>
+                <h2 class="text-5xl font-black text-brand-dark uppercase">Your Personal <br> Museum Hub</h2>
+                <div class="h-1 w-24 bg-brand-accent mx-auto"></div>
+                <p class="text-xl text-gray-600 leading-relaxed font-medium">
+                    Knowledge requires retention. Our simulation tracks every achievement, puzzle solved, and site
+                    visited. Detailed user profiles analyze your progress and unlocked rewards through a community
+                    ecosystem.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 pt-12">
+                    <div class="p-10 border border-gray-100 rounded-2xl hover:shadow-xl transition-shadow">
+                        <i class="fa-solid fa-trophy text-3xl text-brand-gold mb-6 block"></i>
+                        <h4 class="text-xl font-black text-brand-dark mb-4 uppercase">Achievement Analysis</h4>
+                        <p class="text-gray-500 leading-relaxed">Track badges and titles earned through historical
+                            mini-games and accurate site discoveries.</p>
+                    </div>
+                    <div class="p-10 border border-gray-100 rounded-2xl hover:shadow-xl transition-shadow">
+                        <i class="fa-solid fa-users text-3xl text-brand-gold mb-6 block"></i>
+                        <h4 class="text-xl font-black text-brand-dark mb-4 uppercase">Social Connectivity</h4>
+                        <p class="text-gray-500 leading-relaxed">Share your collection and compare progress with friends
+                            in a rich historical community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="js/footer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealOnScroll = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                const windowHeight = window.innerHeight;
+                reveals.forEach((reveal) => {
+                    if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</body>
+
+</html>

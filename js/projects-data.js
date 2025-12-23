@@ -12,5 +12,17 @@ window.PROJECTS_DATA = [
             "Training",
             "Simulation"
         ]
+    },
+    {
+        "id": 2,
+        "project_name": "Ancient Routes: Immersing Users in History",
+        "project_description": "Revolutionizing the exploration of ancient sites by moving history into the digital realm through a hyper-realistic AR experience.",
+        "project_thumbnail": "images/projects/archaeology_gamification_project/hero-image.jpg",
+        "link": "archaeology_gamification_project.html",
+        "tags": [
+            "AR",
+            "Education",
+            "Gamification"
+        ]
     }
 ];
