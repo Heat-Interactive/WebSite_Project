@@ -24,5 +24,17 @@ window.PROJECTS_DATA = [
             "Education",
             "Gamification"
         ]
+    },
+    {
+        "id": 3,
+        "project_name": "V-Tactical FPV",
+        "project_description": "High-fidelity drone operator training platform developed for the defense industry. Integrated with Unity physics and Meta Quest VR.",
+        "project_thumbnail": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2070&auto=format&fit=crop",
+        "link": "vanguard_fpv.html",
+        "tags": [
+            "Defense",
+            "FPV",
+            "Simulation"
+        ]
     }
 ];

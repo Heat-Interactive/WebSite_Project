@@ -27,5 +27,11 @@ Heat Interactive, sanal gerçeklik (VR) ve artırılmış gerçeklik (AR) çöz�
 - Sitenin tarayıcı sekmesinde görünecek olan ikon (favicon), `images/favicon.png` dosyası kullanılarak tüm sayfalara eklendi.
 - Global footer sistemi merkezi yönetime çekildi ve tüm sayfalarda standartlaştırıldı.
 
-## Mevcut Durum (23 Aralık 2025)
-Proje genişletilmeye başlandı. Toplam proje sayısı 2'ye yükseldi. Yeni projenin içerik detayları bekleniyor.
+## Son Güncellemeler (v2.5 - 5 Ocak 2026)
+- "V-Tactical FPV" projesi savunma sanayine yönelik olarak yeniden tasarlandı.
+- Sayfa tasarımı; taktiksel estetik, "Scanline" efektleri ve karanlık tema (Dark Slate/Navy) ile güncellendi.
+- Unity fizik motoru, Quest VR entegrasyonu ve Elektronik Harp (EW) simülasyonu detayları eklendi.
+- `js/projects-data.js` üzerinden proje adı ve görselleri güncellendi.
+
+## Mevcut Durum (5 Ocak 2026)
+Proje sayısı 3'e yükseldi. "Vanguard FPV" projesinin içeriklerinin özelleştirilmesi bekleniyor.

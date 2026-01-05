@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Tactical FPV | Heat Interactive</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',
+                            slate: '#1E293B',
+                            accent: '#FA3624',
+                            tactical: '#3B82F6', // Cyber blue for telemetry
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .parallax-hero {
+            height: 100vh;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-v2 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            transform: scale(1.1);
+            transition: transform 10s linear;
+        }
+
+        .parallax-hero:hover .hero-image-v2 {
+            transform: scale(1);
+        }
+
+        .tactical-border {
+            position: relative;
+            border: 1px solid rgba(250, 54, 36, 0.2);
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .tactical-border::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 20px;
+            height: 20px;
+            border-top: 2px solid #FA3624;
+            border-left: 2px solid #FA3624;
+        }
+
+        .tactical-border::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid #FA3624;
+            border-right: 2px solid #FA3624;
+        }
+
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(250, 54, 36, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(250, 54, 36, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen grid-bg">
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script src="js/navbar.js"></script>
+
+    <!-- Tactical Hero -->
+    <section class="parallax-hero flex items-center justify-center text-center px-6">
+        <div class="absolute inset-0 z-0">
+            <img class="hero-image-v2"
+                src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2070&auto=format&fit=crop"
+                alt="V-Tactical Hero">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/20 to-brand-dark"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl reveal">
+            <span
+                class="text-brand-accent font-black uppercase tracking-[0.6em] text-xs mb-6 block border-b border-brand-accent/30 pb-2">Operational
+                Excellence</span>
+            <h1 class="text-6xl md:text-9xl font-black text-white leading-tight mb-8 tracking-tighter uppercase">
+                V-TACTICAL <span class="text-brand-accent">FPV</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto font-medium leading-relaxed mb-12">
+                The definitive Unity-based simulation platform for high-fidelity drone operator training, standardizing
+                skill sets for the modern defense theater.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#capabilities"
+                    class="px-8 py-4 bg-brand-accent text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-brand-accent transition-all">Directives</a>
+                <a href="#analytics"
+                    class="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all">Telemetry</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Summary Bar -->
+    <section class="py-12 border-y border-white/10 bg-brand-slate/30 backdrop-blur-md">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center md:text-left border-l-2 border-brand-accent pl-4">
+                    <h4 class="text-gray-500 text-[10px] uppercase tracking-widest font-bold mb-1">Defense Sector</h4>
+                    <p class="text-white text-lg font-bold">Standardized Ops</p>
+                </div>
+                <div class="text-center md:text-left border-l-2 border-brand-accent pl-4">
+                    <h4 class="text-gray-500 text-[10px] uppercase tracking-widest font-bold mb-1">Architecture</h4>
+                    <p class="text-white text-lg font-bold">Unity & Quest VR</p>
+                </div>
+                <div class="text-center md:text-left border-l-2 border-brand-accent pl-4">
+                    <h4 class="text-gray-500 text-[10px] uppercase tracking-widest font-bold mb-1">Core Capability</h4>
+                    <p class="text-white text-lg font-bold">EW & Signal Modeling</p>
+                </div>
+                <div class="text-center md:text-left border-l-2 border-brand-accent pl-4">
+                    <h4 class="text-gray-500 text-[10px] uppercase tracking-widest font-bold mb-1">Outcome</h4>
+                    <p class="text-white text-lg font-bold">Operational Success</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Infrastructure -->
+    <section id="capabilities" class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 space-y-12 reveal">
+                    <div class="space-y-4">
+                        <span class="text-brand-accent font-black tracking-widest text-xs uppercase">Project Core</span>
+                        <h2 class="text-5xl font-black text-white leading-tight uppercase">High-Fidelity <br> Physics
+                            Engine</h2>
+                        <div class="w-20 h-1 bg-brand-accent"></div>
+                    </div>
+                    <p class="text-lg text-gray-400 leading-relaxed font-medium">
+                        V-Tactical FPV leverages real-world telemetry data to calibrate specialized flight algorithms.
+                        Weight distribution, thrust-to-weight ratios, and aerodynamic drag are simulated with surgical
+                        precision. It isn't just a game—it's visual and physical conditioning.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 text-white font-bold italic">
+                            <i class="fa-solid fa-microchip text-brand-accent"></i>
+                            CUSTOM BATTERY DISCHARGE MODELS
+                        </li>
+                        <li class="flex items-center gap-4 text-white font-bold italic">
+                            <i class="fa-solid fa-vr-cardboard text-brand-accent"></i>
+                            META QUEST VR GOGGLES INTEGRATION
+                        </li>
+                        <li class="flex items-center gap-4 text-white font-bold italic">
+                            <i class="fa-solid fa-wifi text-brand-accent"></i>
+                            ELECTRONIC WARFARE (EW) RF MODELING
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-6 reveal delay-200">
+                    <div class="tactical-border p-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1527467777422-553b1b590e82?q=80&w=2070&auto=format&fit=crop"
+                            class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
+                            alt="Technical Simulation">
+                        <div
+                            class="absolute bottom-8 right-8 bg-brand-accent/90 text-white px-4 py-2 font-black text-xs tracking-widest uppercase">
+                            SIM_CORE v4.2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operational Training Modules -->
+    <section class="py-32 bg-brand-slate/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-5xl font-black text-white uppercase mb-6 tracking-tighter">Operational Training Modules
+                </h2>
+                <div class="w-24 h-1 bg-brand-accent mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div
+                    class="tactical-border p-10 reveal delay-100 group hover:bg-brand-accent transition-all duration-500">
+                    <i class="fa-solid fa-crosshairs text-4xl text-brand-accent mb-8 block group-hover:text-white"></i>
+                    <h3 class="text-xl font-black uppercase text-white mb-4">Precision Maneuvering</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed group-hover:text-white/80">Flight discipline
+                        training in CQB corridors, ventilation shafts, and dense forest environments with specialized
+                        infiltration protocols.</p>
+                </div>
+                <div
+                    class="tactical-border p-10 reveal delay-200 group hover:bg-brand-accent transition-all duration-500">
+                    <i class="fa-solid fa-bomb text-4xl text-brand-accent mb-8 block group-hover:text-white"></i>
+                    <h3 class="text-xl font-black uppercase text-white mb-4">Target Engagement</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed group-hover:text-white/80">Kamikaze dive and payload
+                        delivery scenarios against stationary and AI-controlled land vehicles, replicating battlefield
+                        dynamics.</p>
+                </div>
+                <div
+                    class="tactical-border p-10 reveal delay-300 group hover:bg-brand-accent transition-all duration-500">
+                    <i
+                        class="fa-solid fa-cloud-showers-heavy text-4xl text-brand-accent mb-8 block group-hover:text-white"></i>
+                    <h3 class="text-xl font-black uppercase text-white mb-4">Adverse Conditions</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed group-hover:text-white/80">Night vision, thermal
+                        imaging, and high-wind simulations for mission execution under extreme environmental visibility
+                        constraints.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signal Modeling / Video Section -->
+    <section class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <div class="tactical-border p-2 rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1590483734724-383b9f448131?q=80&w=1974&auto=format&fit=crop"
+                            class="w-full aspect-[4/5] object-cover filter contrast-125 saturate-50"
+                            alt="EW Simulation">
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-10 reveal delay-200">
+                    <div class="space-y-4">
+                        <span class="text-brand-accent font-black tracking-widest text-xs uppercase">Electronic
+                            Warfare</span>
+                        <h2 class="text-5xl font-black text-white leading-tight uppercase">SIMULATING THE <br> DIGITAL
+                            THREAT</h2>
+                        <div class="w-16 h-1 bg-brand-accent"></div>
+                    </div>
+                    <p class="text-lg text-gray-400 leading-relaxed font-medium">
+                        Modern combat is determined by the EM spectrum. V-Tactical simulates RF interference, signal
+                        degradation, and ECM-induced "snow" to prepare operators for contested airspace where the link
+                        is never guaranteed.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 pt-4">
+                        <div class="border-l border-white/10 pl-6">
+                            <h4 class="font-black uppercase text-white text-sm mb-2 tracking-widest text-brand-accent">
+                                RF STATIC</h4>
+                            <p class="text-gray-500 text-xs">Dynamic visual noise based on proximity to jamming sources.
+                            </p>
+                        </div>
+                        <div class="border-l border-white/10 pl-6">
+                            <h4 class="font-black uppercase text-white text-sm mb-2 tracking-widest text-brand-accent">
+                                SIGNAL LAG</h4>
+                            <p class="text-gray-500 text-xs">Latency modeling during low-signal penetration scenarios.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data & Analytics -->
+    <section id="analytics" class="py-32 bg-white text-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
+                <span class="text-xs font-black uppercase tracking-[0.4em] text-brand-accent">Mission
+                    Intelligence</span>
+                <h2 class="text-6xl font-black uppercase tracking-tighter">After Action Review</h2>
+                <div class="h-2 w-24 bg-brand-dark mx-auto"></div>
+                <p class="text-xl text-gray-600 leading-relaxed font-semibold italic">
+                    Training without data is just practice. V-Tactical provides full flight path, reaction time, and
+                    strike precision logging.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 pt-12">
+                    <div
+                        class="p-10 bg-brand-dark text-white rounded-tr-[4rem] group hover:bg-brand-accent transition-all duration-500">
+                        <i
+                            class="fa-solid fa-chart-line text-3xl mb-6 block text-brand-accent group-hover:text-white"></i>
+                        <h4 class="text-xl font-black mb-4 uppercase italic">Telemetry Analysis</h4>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-white/80">Every flight path is recorded
+                            in 3D space for retrospective evaluation and tactical optimization.</p>
+                    </div>
+                    <div
+                        class="p-10 border-2 border-brand-dark rounded-bl-[4rem] group hover:border-brand-accent hover:bg-brand-accent transition-all duration-500">
+                        <i
+                            class="fa-solid fa-shield-halved text-3xl mb-6 block text-brand-dark group-hover:text-white"></i>
+                        <h4 class="text-xl font-black text-brand-dark mb-4 uppercase italic group-hover:text-white">Safe
+                            Prototyping</h4>
+                        <p class="text-gray-500 leading-relaxed group-hover:text-white/80">Test new combat doctrines and
+                            tactical approaches in a zero-risk virtual environment before unit deployment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="js/footer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealOnScroll = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                const windowHeight = window.innerHeight;
+                reveals.forEach((reveal) => {
+                    if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+
+            // Lazy load the YouTube video logic if needed, or placeholder for specialized player
+        });
+    </script>
+</body>
+
+</html>
