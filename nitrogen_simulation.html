@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitrogen Delivery Simulation | Reenim Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',
+                            primary: '#0ea5e9', /* Industrial Blue */
+                            secondary: '#f59e0b', /* Safety Orange */
+                            dark: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Industrial Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen bg-slate-50">
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script src="js/navbar.js"></script>
+
+    <section class="relative h-[85vh] min-h-[600px] flex items-end pb-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/projects/nitrogen_simulation/hero-image.jpg" class="w-full h-full object-cover"
+                alt="Nitrogen Delivery Hero">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <span
+                        class="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-200 text-xs font-bold tracking-widest uppercase backdrop-blur-md">
+                        Logistics
+                    </span>
+                    <span
+                        class="px-3 py-1 bg-orange-500/20 border border-orange-400/30 rounded-full text-orange-200 text-xs font-bold tracking-widest uppercase backdrop-blur-md">
+                        HazMat Safety
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 uppercase tracking-tight">
+                    Nitrogen Delivery <br> <span class="text-blue-400">Simulation</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-medium">
+                    Mastering the critical process of cryogenic gas transfer. A high-fidelity VR training system
+                    designed to eliminate risk and standardize safety protocols for industrial truck drivers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 border-b border-gray-200 bg-white shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center md:text-left border-l-4 border-blue-500 pl-4">
+                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Sector</h4>
+                    <p class="text-slate-900 text-lg font-bold">Industrial Logistics</p>
+                </div>
+                <div class="text-center md:text-left border-l-4 border-blue-500 pl-4">
+                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Platform</h4>
+                    <p class="text-slate-900 text-lg font-bold">VR Headsets</p>
+                </div>
+                <div class="text-center md:text-left border-l-4 border-blue-500 pl-4">
+                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Focus</h4>
+                    <p class="text-slate-900 text-lg font-bold">Process Compliance</p>
+                </div>
+                <div class="text-center md:text-left border-l-4 border-blue-500 pl-4">
+                    <h4 class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Tech</h4>
+                    <p class="text-slate-900 text-lg font-bold">Physics & Hand Tracking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8 reveal">
+                    <div>
+                        <span class="text-blue-600 font-bold tracking-widest uppercase text-3xs mb-3 block">The
+                            Challenge</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">Zero-Risk <br>
+                            Cryogenic Handling</h2>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-lg font-medium">
+                        Delivering liquid nitrogen is a high-stakes operation. One mistake in valve sequencing or
+                        pressure management can lead to equipment failure or severe injury. This project digitizes the
+                        entire delivery workflow, allowing drivers to practice dangerous procedures without real-world
+                        consequences.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                            <i class="fa-solid fa-triangle-exclamation text-orange-500 text-2xl mb-4"></i>
+                            <h4 class="text-slate-900 font-bold mb-2">Hazard Simulation</h4>
+                            <p class="text-gray-600 text-sm font-medium">Experience pressure leaks and freezing hazards
+                                safely.</p>
+                        </div>
+                        <div
+                            class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                            <i class="fa-solid fa-list-check text-blue-500 text-2xl mb-4"></i>
+                            <h4 class="text-slate-900 font-bold mb-2">Procedural Muscle Memory</h4>
+                            <p class="text-gray-600 text-sm font-medium">Drill the exact sequence of connection and
+                                transfer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal delay-100">
+                    <div class="bg-slate-100 p-2 rounded-2xl border border-slate-200 shadow-lg h-[500px]">
+                        <div class="w-full h-full rounded-xl overflow-hidden relative">
+                            <img src="images/projects/nitrogen_simulation/simulation-image-1.jpg"
+                                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                alt="Industrial Nitrogen Facility">
+                            <div
+                                class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-lg border-l-2 border-orange-500">
+                                <span class="text-white text-xs font-bold uppercase tracking-widest">1:1 Environmental
+                                    Replica</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-28 bg-slate-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span
+                    class="text-blue-600 font-bold tracking-widest uppercase text-xs mb-3 inline-block">Workflow</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">Standard Operating <br>
+                    Procedures</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="group bg-white rounded-[2rem] shadow-lg border border-slate-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/projects/nitrogen_simulation/simulation-image-2.jpg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Safety Chocks">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-orange-500 font-black text-4xl mb-4 opacity-30">01</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Site Stabilization</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed">
+                            Before any transfer begins, drivers must secure the vehicle. We simulate the physical
+                            placement of wheel chocks and safety cone deployment to ensure site compliance.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-[2rem] shadow-lg border border-slate-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 reveal delay-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/projects/nitrogen_simulation/simulation-image-3.jpg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Flange Connection">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-blue-500 font-black text-4xl mb-4 opacity-30">02</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Mechanical Assembly</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed">
+                            Users interact with heavy industrial equipment using VR controllers. Tightening flanges,
+                            checking seals, and using non-sparking tools are simulated with physics-based feedback.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-[2rem] shadow-lg border border-slate-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 reveal delay-200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/projects/nitrogen_simulation/simulation-image-4.jpg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Valve Operation">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-blue-500 font-black text-4xl mb-4 opacity-30">03</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Pressure Management</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed">
+                            The core transfer process. Drivers must monitor analog gauges and operate valves in the
+                            correct sequence to manage the flow of liquid nitrogen through the vaporizer units.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 reveal order-2 lg:order-1">
+                    <div class="bg-slate-100 p-2 rounded-2xl border border-slate-200 shadow-md h-[450px]">
+                        <div class="w-full h-full rounded-xl overflow-hidden">
+                            <img src="images/projects/nitrogen_simulation/simulation-image-5.jpg"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                                alt="VR Interaction Mechanics">
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-8 reveal order-1 lg:order-2">
+                    <span class="text-orange-500 font-bold tracking-widest uppercase text-3xs mb-3 block">Technical
+                        Depth</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">Simulating <br>
+                        Industrial Physics</h2>
+                    <p class="text-gray-600 leading-relaxed font-medium text-lg">
+                        This isn't just a 360-degree video; it's a fully interactive simulation. We modeled the physical
+                        resistance of rusty valves, the weight of the transfer hoses, and the auditory feedback of gas
+                        pressure to create a "training-by-doing" environment.
+                    </p>
+
+                    <div class="space-y-6 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 border border-blue-100">
+                                <i class="fa-solid fa-hand-back-fist text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-slate-900 font-bold text-lg">Haptic Interaction</h4>
+                                <p class="text-gray-600 text-sm">Fine motor control required for bolt tightening and
+                                    valve adjustments.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600 shrink-0 border border-orange-100">
+                                <i class="fa-solid fa-gauge-high text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-slate-900 font-bold text-lg">Dynamic Systems</h4>
+                                <p class="text-gray-600 text-sm">Gauges react in real-time to user input, simulating
+                                    potential over-pressure scenarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="js/footer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealOnScroll = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                const windowHeight = window.innerHeight;
+                reveals.forEach((reveal) => {
+                    if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</body>
+
+</html>
