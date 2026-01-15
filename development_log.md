@@ -27,11 +27,11 @@ Heat Interactive, sanal gerçeklik (VR) ve artırılmış gerçeklik (AR) çöz�
 - Sitenin tarayıcı sekmesinde görünecek olan ikon (favicon), `images/favicon.png` dosyası kullanılarak tüm sayfalara eklendi.
 - Global footer sistemi merkezi yönetime çekildi ve tüm sayfalarda standartlaştırıldı.
 
-## Son Güncellemeler (v2.5 - 5 Ocak 2026)
-- "V-Tactical FPV" projesi savunma sanayine yönelik olarak yeniden tasarlandı.
-- Sayfa tasarımı; taktiksel estetik, "Scanline" efektleri ve karanlık tema (Dark Slate/Navy) ile güncellendi.
-- Unity fizik motoru, Quest VR entegrasyonu ve Elektronik Harp (EW) simülasyonu detayları eklendi.
-- `js/projects-data.js` üzerinden proje adı ve görselleri güncellendi.
+## Son Güncellemeler (v2.6 - 15 Ocak 2026)
+- İletişim sayfası (`contact.html`) Web3Forms altyapısı ile tamamen işlevsel hale getirildi.
+- AJAX tabanlı form gönderimi entegre edilerek sayfa yenilenmeden e-posta gönderimi sağlandı.
+- Form alanları (isim, e-posta, telefon, konu, mesaj) dinamikleştirildi ve başarı/hata geri bildirimleri eklendi.
+- `vanguard_fpv.html` üzerindeki operasyonel video içeriği güncellendi.
 
-## Mevcut Durum (5 Ocak 2026)
-Proje sayısı 3'e yükseldi. "Vanguard FPV" projesinin içeriklerinin özelleştirilmesi bekleniyor.
+## Mevcut Durum (15 Ocak 2026)
+Proje sayısı 4'e yükseldi (Agriculture, Ancient Routes, Vanguard FPV, Nitrogen Delivery). Tüm temel sayfalar ve iletişim formu aktif durumda. Sitenin canlıya alınması için hazır bir yapı oluşturuldu.
