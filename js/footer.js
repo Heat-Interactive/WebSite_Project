@@ -13,17 +13,21 @@ const footerHTML = `
                     <p class="text-sm text-gray-500 mt-2">© 2025 Heat Interactive.</p>
                 </div>
                 <div class="flex gap-6">
-                    <a href="#"
+                    <a href="https://www.linkedin.com/company/heat-interactive/" target="_blank"
                         class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all" aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://www.instagram.com/heatinteractive/" target="_blank"
                         class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all" aria-label="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                     <a href="#"
-                        class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all" aria-label="Twitter">
-                        <i class="fa-brands fa-twitter"></i>
+                        class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all" aria-label="Reddit">
+                        <i class="fa-brands fa-reddit-alien"></i>
+                    </a>
+                    <a href="https://youtube.com/@heatinteractive?si=y1tLwe77KLGK-2X8" target="_blank"
+                        class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FA3624] hover:bg-gray-50 transition-all" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
                     </a>
                 </div>
             </div>

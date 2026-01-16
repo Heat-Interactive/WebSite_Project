@@ -32,6 +32,7 @@ Heat Interactive, sanal gerçeklik (VR) ve artırılmış gerçeklik (AR) çöz�
 - AJAX tabanlı form gönderimi entegre edilerek sayfa yenilenmeden e-posta gönderimi sağlandı.
 - Form alanları (isim, e-posta, telefon, konu, mesaj) dinamikleştirildi ve başarı/hata geri bildirimleri eklendi.
 - `vanguard_fpv.html` üzerindeki operasyonel video içeriği güncellendi.
+- Modern ve marka kimliğiyle uyumlu `404.html` (Sayfa Bulunamadı) hata sayfası eklendi.
 
 ## Mevcut Durum (15 Ocak 2026)
 Proje sayısı 4'e yükseldi (Agriculture, Ancient Routes, Vanguard FPV, Nitrogen Delivery). Tüm temel sayfalar ve iletişim formu aktif durumda. Sitenin canlıya alınması için hazır bir yapı oluşturuldu.

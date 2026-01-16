@@ -63,22 +63,18 @@ const navbarHTML = `
                 </div>
 
                 <!-- Social Media Icons (No dividers between them, no divider at the end) -->
-                <!-- Adjusted gap to gap-4 to reduce spacing. Swapped X icon to Twitter icon to ensure visibility and prevent gap issues -->
+                <!-- Adjusted gap to gap-4 to reduce spacing. -->
                 <div class="flex items-center h-12 ml-6 gap-4">
-                    <a href="#" class="text-black hover:text-[#FA3624] transition-colors" aria-label="Discord">
-                        <i class="fa-brands fa-discord text-xl lg:text-2xl"></i>
+                    <a href="https://www.linkedin.com/company/heat-interactive/" target="_blank" class="text-black hover:text-[#FA3624] transition-colors" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin text-xl lg:text-2xl"></i>
                     </a>
-                    <a href="#" class="text-black hover:text-[#FA3624] transition-colors" aria-label="Instagram">
+                    <a href="https://www.instagram.com/heatinteractive/" target="_blank" class="text-black hover:text-[#FA3624] transition-colors" aria-label="Instagram">
                         <i class="fa-brands fa-instagram text-xl lg:text-2xl"></i>
                     </a>
-                    <a href="#" class="text-black hover:text-[#FA3624] transition-colors" aria-label="X (Twitter)">
-                        <!-- Using fa-twitter instead of fa-x-twitter to ensure icon renders and no gap is left -->
-                        <i class="fa-brands fa-twitter text-xl lg:text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-black hover:text-[#FA3624] transition-colors" aria-label="Reddit">
+                    <a href="https://www.reddit.com/user/heatinteractive/" target="_blank" class="text-black hover:text-[#FA3624] transition-colors" aria-label="Reddit">
                         <i class="fa-brands fa-reddit-alien text-xl lg:text-2xl"></i>
                     </a>
-                    <a href="#" class="text-black hover:text-[#FA3624] transition-colors" aria-label="YouTube">
+                    <a href="https://youtube.com/@heatinteractive?si=y1tLwe77KLGK-2X8" target="_blank" class="text-black hover:text-[#FA3624] transition-colors" aria-label="YouTube">
                         <i class="fa-brands fa-youtube text-xl lg:text-2xl"></i>
                     </a>
                 </div>
@@ -115,11 +111,10 @@ const navbarHTML = `
             
             <!-- Mobile Social Links -->
             <div class="flex items-center justify-center gap-6 mt-4">
-                <a href="#" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-discord text-3xl"></i></a>
-                <a href="#" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-instagram text-3xl"></i></a>
-                <a href="#" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-twitter text-3xl"></i></a>
-                <a href="#" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-reddit-alien text-3xl"></i></a>
-                <a href="#" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-youtube text-3xl"></i></a>
+                <a href="https://www.linkedin.com/company/heat-interactive/" target="_blank" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-linkedin text-3xl"></i></a>
+                <a href="https://www.instagram.com/heatinteractive/" target="_blank" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-instagram text-3xl"></i></a>
+                <a href="https://www.reddit.com/user/heatinteractive/" target="_blank" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-reddit-alien text-3xl"></i></a>
+                <a href="https://youtube.com/@heatinteractive?si=y1tLwe77KLGK-2X8" target="_blank" class="text-gray-800 hover:text-[#FA3624] transition-colors"><i class="fa-brands fa-youtube text-3xl"></i></a>
             </div>
         </div>
     </div>
