@@ -36,17 +36,18 @@ window.PROJECTS_DATA = [
             "FPV",
             "Simulation"
         ]
-    },
-    {
-        "id": 4,
-        "project_name": "Nitrogen Delivery Simulation",
-        "project_description": "Mastering the critical process of cryogenic gas transfer. A high-fidelity VR training system designed to eliminate risk and standardize safety protocols.",
-        "project_thumbnail": "images/projects/nitrogen_simulation/hero-image.jpg",
-        "link": "nitrogen_simulation.html",
-        "tags": [
-            "Logistics",
-            "VR",
-            "Safety"
-        ]
     }
+    //,
+    // {
+    //     "id": 4,
+    //     "project_name": "Nitrogen Delivery Simulation",
+    //     "project_description": "Mastering the critical process of cryogenic gas transfer. A high-fidelity VR training system designed to eliminate risk and standardize safety protocols.",
+    //     "project_thumbnail": "images/projects/nitrogen_simulation/hero-image.jpg",
+    //     "link": "nitrogen_simulation.html",
+    //     "tags": [
+    //         "Logistics",
+    //         "VR",
+    //         "Safety"
+    //     ]
+    // }
 ];
