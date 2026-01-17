@@ -217,13 +217,19 @@
 
             <!-- Video Embed -->
             <div class="mt-16 reveal delay-200">
-                <div class="bg-gray-50 p-2 rounded-2xl border-2 border-gray-200 shadow-md">
-                    <div class="w-full aspect-video rounded-xl overflow-hidden">
-                        <iframe class="w-full h-full"
-                            src="https://www.youtube.com/embed/PO3xNy7zxpI?si=1133QOZJs-dKoxGq"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
+                <div class="max-w-6xl mx-auto">
+                    <div class="video-container group relative aspect-video rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-black cursor-pointer"
+                        onclick="this.innerHTML = '<iframe class=\'w-full h-full\' src=\'https://www.youtube.com/embed/PO3xNy7zxpI?autoplay=1&rel=0\' title=\'Agriculture Simulation Video\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\' allowfullscreen></iframe>'">
+                        <!-- Custom Poster / Overlay -->
+                        <img src="images/projects/agriculture_collecting_simulation/hero-image.jpg"
+                            class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
+                            alt="Video Poster">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div
+                                class="w-20 h-20 rounded-full bg-[#FA3624]/90 flex items-center justify-center text-white text-2xl shadow-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

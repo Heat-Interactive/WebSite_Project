@@ -27,12 +27,13 @@ Heat Interactive, sanal gerçeklik (VR) ve artırılmış gerçeklik (AR) çöz�
 - Sitenin tarayıcı sekmesinde görünecek olan ikon (favicon), `images/favicon.png` dosyası kullanılarak tüm sayfalara eklendi.
 - Global footer sistemi merkezi yönetime çekildi ve tüm sayfalarda standartlaştırıldı.
 
-## Son Güncellemeler (v2.6 - 15 Ocak 2026)
+## Son Güncellemeler (v2.7 - 17 Ocak 2026)
 - İletişim sayfası (`contact.html`) Web3Forms altyapısı ile tamamen işlevsel hale getirildi.
 - AJAX tabanlı form gönderimi entegre edilerek sayfa yenilenmeden e-posta gönderimi sağlandı.
 - Form alanları (isim, e-posta, telefon, konu, mesaj) dinamikleştirildi ve başarı/hata geri bildirimleri eklendi.
 - `vanguard_fpv.html` üzerindeki operasyonel video içeriği güncellendi.
 - Modern ve marka kimliğiyle uyumlu `404.html` (Sayfa Bulunamadı) hata sayfası eklendi.
+- `agriculture_collecting_simulation.html` ve `vanguard_fpv.html` sayfalarındaki video bölümleri, `archaeology_gamification_project.html` sayfasındaki gibi modern ve performans dostu (tıkla-oynat) sinematik yapıya dönüştürüldü.
 
-## Mevcut Durum (15 Ocak 2026)
+## Mevcut Durum (17 Ocak 2026)
 Proje sayısı 4'e yükseldi (Agriculture, Ancient Routes, Vanguard FPV, Nitrogen Delivery). Tüm temel sayfalar ve iletişim formu aktif durumda. Sitenin canlıya alınması için hazır bir yapı oluşturuldu.
